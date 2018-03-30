@@ -1,0 +1,70 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Sign Up</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding class="ion-content">
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>
+     <ion-row>
+      <ion-col></ion-col>
+      <ion-col>
+        <img class="schoollogo" src="assets/imgs/signupimg.png">
+      </ion-col>
+      <ion-col>
+      </ion-col>
+    </ion-row> 
+
+
+  <form class="signupForm" [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)">
+    <ion-item class="ion-card">
+      <ion-input placeholder="Full Name" type="text" formControlName="fullname" name="fullname"></ion-input>
+      <ion-icon color="primary" item-start small name="person"></ion-icon>
+    </ion-item>
+
+    <ion-item class="ion-card">
+      <ion-input placeholder="Username" type="text" formControlName="username" name="username"></ion-input>
+      <ion-icon color="primary" item-start small name="person"></ion-icon>
+    </ion-item>
+
+
+    <ion-item class="ion-card">
+      <ion-input placeholder="Email" type="email" pattern="[^ @]*@[^ @]*.[^@]*" formControlName="email" name="email"></ion-input>
+      <ion-icon color="primary_btn" item-start small name="mail"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Designation</ion-label>
+        <ion-select formControlName="designation" [(ngModel)]="designation">
+          <ion-option value="pricipal">Principal</ion-option>
+          <ion-option value="academicstaff">Academic Staff</ion-option>
+          <ion-option value="parent">Parent</ion-option>
+      </ion-select>
+         <ion-icon color="primary" item-start small name="person"></ion-icon>
+    </ion-item>
+
+    <ion-item >
+      <ion-input placeholder="Password" type="password" formControlName="password" name="password"></ion-input>
+      <ion-icon color="primary" item-start small name="text"></ion-icon>
+    </ion-item>
+    <button ion-button color="primary" type="submit" [disabled]="!signupForm.valid" block icon-left>
+        <ion-icon name="log-in"></ion-icon>
+        &nbsp;Sign Up
+        </button>
+
+  </form>
+</ion-content>

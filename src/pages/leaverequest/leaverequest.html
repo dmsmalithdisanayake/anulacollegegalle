@@ -1,0 +1,65 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Leave Request</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col></ion-col>
+    <ion-col>
+      <img class="schoollogo" src="assets/imgs/leavereq.jpg">
+    </ion-col>
+    <ion-col>
+    </ion-col>
+  </ion-row>
+
+
+  <form class="leaveForm" [formGroup]="leaveForm" (ngSubmit)="onSubmit(leaveForm)">
+    <ion-item class="ion-card">
+       <ion-label>From</ion-label>
+         <ion-datetime displayFormat="MM/DD/YYYY" formControlName="fromdate" name="fromdate"></ion-datetime>
+       <ion-icon color="primary" item-start small name="md-calendar"></ion-icon> 
+    </ion-item>
+
+    <ion-item class="ion-card">
+       <ion-label>To</ion-label>
+       <ion-datetime displayFormat="MM/DD/YYYY" formControlName="todate" name="todate"></ion-datetime>
+       <ion-icon color="primary" item-start small name="md-calendar"></ion-icon> 
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Reason</ion-label>
+      <ion-select formControlName="reason" [(ngModel)]="reason">
+        <ion-option value="sick">Sick</ion-option>
+        <ion-option value="casual">Casual</ion-option>
+        <ion-option value="annual">Annual</ion-option>
+      </ion-select>
+      <ion-icon color="primary" item-start small name="chatbubbles"></ion-icon>
+    </ion-item>
+
+
+    <button ion-button color="primary" type="submit" [disabled]="!leaveForm.valid" block icon-left>
+        <ion-icon name="log-in"></ion-icon>
+        &nbsp;Submit Leave Request
+        </button>
+
+
+  </form>
+</ion-content>

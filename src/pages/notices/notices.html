@@ -1,0 +1,37 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Send Notice</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <form class="noticeForm" [formGroup]="noticeForm" (ngSubmit)="onSubmit(noticeForm)">
+    <ion-item class="ion-card">
+      <ion-input placeholder="Heading" type="text" formControlName="heading" name="heading"></ion-input>
+      <ion-icon color="primary" item-start small name="create"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-textarea placeholder="News Content" type="text" formControlName="content" name="content"></ion-textarea>
+      <ion-icon color="primary" item-start small name="text"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Send To</ion-label>
+        <ion-select formControlName="sendto" [(ngModel)]="sendto">
+          <ion-option value="staff">Staff</ion-option>
+          <ion-option value="parents">Parents</ion-option>
+      </ion-select>
+         <ion-icon color="primary" item-start small name="person"></ion-icon>
+    </ion-item>
+
+    <button ion-button color="primary" type="submit" [disabled]="!noticeForm.valid" block icon-left>
+        <ion-icon name="log-in"></ion-icon>
+        &nbsp;Send
+
+        </button>
+  </form>
+</ion-content>
